@@ -5,18 +5,19 @@ function getDirectories(srcpath) {
         return fs.statSync(path.join(srcpath, file)).isDirectory();
     });
 }
-
-var plugin_folders;
-var plugin_directory;
+var plugin_directory = __dirname + "/plugins/"
+var plugin_folders = getDirectories(plugin_directory); ;
 var exec_dir;
 try { //try loading plugins from a non standalone install first
-    plugin_directory = "./plugins/";
+    plugin_directory = __dirname + "/plugins/";
     plugin_folders = getDirectories(plugin_directory);
 } catch(e){//load paths for an Electrify install
     exec_dir = path.dirname(process.execPath) + "/resources/default_app/"; //need this to change node prefix for npm installs
     plugin_directory = path.dirname(process.execPath) + "/resources/default_app/plugins/";
     plugin_folders = getDirectories(plugin_directory);
 }
+
+console.log(__dirname, process.execPath);
 
 exports.init = function(){
     preload_plugins();
@@ -43,15 +44,10 @@ function preload_plugins(){
             deps = deps.concat(createNpmDependenciesArray(plugin_directory + plugin_folders[i] + "/package.json"));
         }
     }
-    if(deps.length > 0) {
+    if (deps.length > 0) {
         npm.load({
             loaded: false
         }, function (err) {
-            // catch errors
-            if (plugin_directory != "./plugins/"){ //install plugin modules for Electrify builds
-                npm.prefix = exec_dir;
-                console.log(npm.prefix);
-            }
             npm.commands.install(deps, function (er, data) {
                 if(er){
                     console.log(er);
