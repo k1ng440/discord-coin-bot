@@ -37,72 +37,70 @@ exports.coinmarketcap = {
 			return response.edit('Please define a coin');
 		}
 
-		msg.channel.send('Loading...').then(response => {
-			let lcurrency = currency.toLowerCase();
-			result = cmc.getPrice(coin, currency);
-			if (result) {
-				response.edit({
-					embed: {
-						color: '3447003',
-						url: result.url,
-						title: "Coin Market Cap (" + result.name + ") :chart_with_upwards_trend:",
-						fields: [
-							{
-								name: 'Price',
-								value: result.price,
-								inline: true
-							},
-							{
-								name: "Bitcoin",
-								value: result[ 'price_btc' ],
-								inline: true
-							},
-							{
-								name: "Etherum",
-								value: result[ 'price_eth' ],
-								inline: true
-							},
-							{
-								name: "Rank",
-								value: result.rank,
-								inline: true
-							},
-							{
-								name: "Market Cap",
-								value: result.market_cap,
-								inline: true
-							},
-							{
-								name: "Total Supply",
-								value: result.supply,
-								inline: true
-							},
-							{
-								name: "1 Hour %",
-								value: getThumb(result.change[ '1h' ]),
-								inline: true
-							},
-							{
-								name: "12 Hours %",
-								value: getThumb(result.change[ '24h' ]),
-								inline: true
-							},
-							{
-								name: "7 Days %",
-								value: getThumb(result.change[ '7d' ]),
-								inline: true
-							}
-						],
-						footer: {
-							icon_url: result.icon,
-							text: "Last Update: " + result.last_update
+		let lcurrency = currency.toLowerCase();
+		result = cmc.getPrice(coin, currency);
+		if (result) {
+			msg.channel.send({
+				embed: {
+					color: '3447003',
+					url: result.url,
+					title: "Coin Market Cap (" + result.name + ") :chart_with_upwards_trend:",
+					fields: [
+						{
+							name: 'Price',
+							value: result.price,
+							inline: true
+						},
+						{
+							name: "Bitcoin",
+							value: result[ 'price_btc' ],
+							inline: true
+						},
+						{
+							name: "Etherum",
+							value: result[ 'price_eth' ],
+							inline: true
+						},
+						{
+							name: "Rank",
+							value: result.rank,
+							inline: true
+						},
+						{
+							name: "Market Cap",
+							value: result.market_cap,
+							inline: true
+						},
+						{
+							name: "Total Supply",
+							value: result.supply,
+							inline: true
+						},
+						{
+							name: "1 Hour %",
+							value: getThumb(result.change[ '1h' ]),
+							inline: true
+						},
+						{
+							name: "12 Hours %",
+							value: getThumb(result.change[ '24h' ]),
+							inline: true
+						},
+						{
+							name: "7 Days %",
+							value: getThumb(result.change[ '7d' ]),
+							inline: true
 						}
+					],
+					footer: {
+						icon_url: result.icon,
+						text: "Last Update: " + result.last_update
 					}
-				});
-			} else {
-				response.edit('Invalid Coin');
-			}
-		});
+				}
+			});
+		} else {
+			response.edit('Invalid Coin');
+		}
 	}
 }
 
