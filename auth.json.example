@@ -1,0 +1,14 @@
+{
+	"email" : "email of the discord account here if using a user account",
+	"password" : "password of the discord account here if using a user account",
+	"bot_token" : "bot token",
+	"client_id" : "client id if using a bot account and you want people to be able to invite it to their server",
+	"youtube_api_key": "create one here https://console.developers.google.com",
+	"google_custom_search": "follow instructions at https://stackoverflow.com/questions/34035422/google-image-search-says-api-no-longer-available",
+	"imgflip_username": "https://imgflip.com/ username",
+	"imgflip_password": "https://imgflip.com/ password",
+	"poloniex_api": "api key",
+	"poloniex_secret": "secret",
+	"bittrex_api": "b27de8762b2b41bfa4b714489e382301",
+	"bittrex_secret": "96842876f61243c9889f4e8958f69d17"
+}

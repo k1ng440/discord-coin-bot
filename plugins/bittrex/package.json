@@ -1,0 +1,7 @@
+{
+  "main": "bittrex.js",
+  "dependencies": {
+    "node.bittrex.api": "0.3.3",
+    "node-cache": "4.1.1"
+  }
+}
