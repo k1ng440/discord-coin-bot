@@ -9,17 +9,16 @@ const request = require('request');
 const _ = require('underscore');
 const path = require('path');
 const Datastore = require('nedb');
-const db = new Datastore({ filename: path.normalize(__dirname + '/../notify.db' ) });
+const db = new Datastore({ filename: path.normalize(__dirname + '/../../notify.db' ) });
 db.loadDatabase(function (err) {    // Callback is optional
   // Now commands will be executed
 });
 
-console.log(path.normalize(__dirname + '/../../notify.db' ));
-
+const currencies = ["AUD", "BRL", "CAD", "CHF", "CNY", "EUR", "GBP", "HKD", "IDR", "INR", "JPY", "KRW", "MXN", "RUB"]
 
 exports.coinmarketcap = {
 	usage: "<coin> <currency>",
-	description: "Fetch coin from ***Coin Market Cap***",
+	description: "Fetch coin from ***Coin Market Cap***\nAvailable Currency: " + currencies.join(', '),
 	process: function(bot, msg, suffix) {
 		suffix = _.reject(suffix.toUpperCase().split(" "),function (value) {
 			return value === null || value === '';
@@ -105,7 +104,7 @@ function getTicker(currency) {
 		coinmarketcapCache.get('coinmarketcapCache' + currency, function (err, value) {
 			if (!err) {
 				if (value == undefined) {
-						request.get('https://api.coinmarketcap.com/v1/ticker/?convert=' + currency, { timeout: 30000 }, (err, result) => {
+						request.get('https://api.coinmarketcap.com/v1/ticker/?limit=200&convert=' + currency, { timeout: 30000 }, (err, result) => {
 							if (err) {
 								reject(err.message);
 							} else {
