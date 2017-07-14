@@ -34,7 +34,7 @@ exports.coinmarketcap = {
 		let currency = suffix.length > 1 ? suffix[ 1 ] : 'USD';
 
 		if (typeof coin === 'undefined') {
-			return response.edit('Please define a coin');
+			return msg.channel.send('Please define a coin');
 		}
 
 		let lcurrency = currency.toLowerCase();
@@ -99,7 +99,7 @@ exports.coinmarketcap = {
 				}
 			});
 		} else {
-			response.edit('Invalid Coin');
+			msg.channel.send('Invalid Coin');
 		}
 	}
 }
