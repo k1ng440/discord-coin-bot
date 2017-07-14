@@ -25,9 +25,15 @@ exports.coinmarketcap = {
 			return value === null || value === '';
 		});
 		
-		let baseCoin = coins.length > 1 ? coins[0] : 'BTC';  
-		let coin = coins.length > 1 ? coins[1] : coins[0];
+		let baseCoin = suffix.length > 1 ? suffix[0] : 'BTC';  
+		let coin = suffix.length > 1 ? suffix[1] : suffix[0];
 		var xCoin = [baseCoin, coin].join('_');
+
+		if (baseCoin === coin) {
+			return response.edit('Cannot compare ' + baseCoin + ' to itself');
+		} else if (typeof coin === 'undefined') {
+			return response.edit('Please define a coin');
+		}
 
 		msg.channel.send('Loading...').then(response => {
 			getTicker().then(result => {
