@@ -35,7 +35,7 @@ exports.coinmarketcap = {
 			let lcurrency = currency.toLowerCase();
 			getTicker(currency).then(result => {
 				result = _.find(result, (x) => {
-					return x.symbol === coin;
+					return x.symbol == coin;
 				});
 
 				if (result.length > 0) {
