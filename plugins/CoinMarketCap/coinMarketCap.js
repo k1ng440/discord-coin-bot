@@ -25,18 +25,16 @@ exports.coinmarketcap = {
 			return value === null || value === '';
 		});
 		
-		let baseCoin = suffix.length > 1 ? suffix[0] : 'BTC';  
-		let coin = suffix.length > 1 ? suffix[1] : suffix[0];
-		var xCoin = [baseCoin, coin].join('_');
-
-		if (baseCoin === coin) {
-			return response.edit('Cannot compare ' + baseCoin + ' to itself');
-		} else if (typeof coin === 'undefined') {
+		let coin = suffix[0];
+		let currency = suffix.length > 1 ? suffix[1] : 'USD';  
+		
+		if (typeof coin === 'undefined') {
 			return response.edit('Please define a coin');
 		}
 
 		msg.channel.send('Loading...').then(response => {
-			getTicker().then(result => {
+			let lcurrency = currency.toLowerCase();
+			getTicker(currency).then(result => {
 				if (result.length > 0) {
 					result = result[0];
 					response.edit({
@@ -107,8 +105,9 @@ function getTicker(currency) {
 		coinmarketcapCache.get('coinmarketcapCache' + currency, function (err, value) {
 			if (!err) {
 				if (value == undefined) {
-					try {
-						request.get('https://api.coinmarketcap.com/v1/ticker/?convert=' + currency, { timeout: 30000 }, function(err, result) {
+						require('request').debug = true
+						request.get('https://api.coinmarketcap.com/v1/ticker/?convert=' + currency, { timeout: 30000 }, (err, result) => {
+							console.log(err, result);
 							if (err) {
 								reject(err.message);
 							} else {
@@ -116,14 +115,13 @@ function getTicker(currency) {
 								coinmarketcapCache.set('coinmarketcapCache' + currency, result)
 								resolve(result);
 							}
+						}, (error) => {
+							if (_.contains(['ETIMEDOUT', 'ESOCKETTIMEDOUT'], error.code)) {
+								reject('Request Timeout');
+							} else {
+								reject(error.code);
+							}
 						});
-					} catch(e) {
-						if (_.contains(['ETIMEDOUT', 'ESOCKETTIMEDOUT'], e.message)) {
-							reject('Request timed out');
-						} else {
-							reject(e.message);
-						}
-					}
 				} else {
 					resolve(value);
 				}
