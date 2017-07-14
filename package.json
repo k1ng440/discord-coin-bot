@@ -11,11 +11,13 @@
   },
   "license": "GPL-2.0",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "cryptocompare": "^0.1.0",
     "d20": "^1.4.1",
     "discord.js": "^11.1.0",
     "feedparser": "1.1.x",
     "html-to-text": "^3.3.0",
+    "moment": "^2.18.1",
     "nedb": "^1.8.0",
     "nock": "1.7.x",
     "node-cache": "^4.1.1",
@@ -27,7 +29,7 @@
     "request-promise": "^4.2.1",
     "sinon": "1.14.x",
     "tumblr.js": "0.0.x",
-    "underscore": "1.8.x"
+    "underscore": "^1.8.3"
   },
   "main": "discord_bot.js"
 }

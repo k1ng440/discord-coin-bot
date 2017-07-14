@@ -4,6 +4,8 @@
     "request": "2.81.0",
     "node-cache": "4.1.1",
     "nedb": "^1.8.0",
-    "underscore": "1.8.3"
+    "moment": "2.18.1",
+    "underscore": "1.8.3",
+    "cheerio": "1.0.0-rc.2"
   }
 }
