@@ -34,6 +34,10 @@ exports.coinmarketcap = {
 		msg.channel.send('Loading...').then(response => {
 			let lcurrency = currency.toLowerCase();
 			getTicker(currency).then(result => {
+				result = _.find(result, (x) => {
+					return x.symbol === coin;
+				});
+
 				if (result.length > 0) {
 					result = result[0];
 					response.edit({
