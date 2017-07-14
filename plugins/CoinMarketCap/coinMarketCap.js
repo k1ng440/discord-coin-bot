@@ -82,10 +82,8 @@ exports.coinmarketcap = {
 				} else {
 					response.edit('Invalid Coin');
 				}
-
-
 			}, error => {
-
+				console.log('Oops! ' + error);
 			});
 		});
 	}
