@@ -19,7 +19,7 @@ console.log("Starting DiscordBot\nNode version: " + process.version + "\nDiscord
 
 // Get authentication data
 try {
-	var AuthDetails = require("./auth.json");
+	var AuthDetails = require(__dirname + "/auth.json");
 } catch (e){
 	console.log("Please create an auth.json like auth.json.example with a bot token or an email and password.\n"+e.stack);
 	process.exit();
@@ -29,7 +29,7 @@ try {
 var dangerousCommands = ["eval","pullanddeploy","setUsername"];
 var Permissions = {};
 try{
-	Permissions = require("./permissions.json");
+	Permissions = require(__dirname + "/permissions.json");
 } catch(e){
 	Permissions.global = {};
 	Permissions.users = {};
