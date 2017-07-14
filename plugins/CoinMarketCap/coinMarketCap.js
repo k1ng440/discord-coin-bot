@@ -105,9 +105,7 @@ function getTicker(currency) {
 		coinmarketcapCache.get('coinmarketcapCache' + currency, function (err, value) {
 			if (!err) {
 				if (value == undefined) {
-						require('request').debug = true
 						request.get('https://api.coinmarketcap.com/v1/ticker/?convert=' + currency, { timeout: 30000 }, (err, result) => {
-							console.log(err, result);
 							if (err) {
 								reject(err.message);
 							} else {
