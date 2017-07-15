@@ -76,18 +76,18 @@ exports.coinmarketcap = {
 							inline: true
 						},
 						{
-							name: "1 Hour %",
-							value: result.change[ '1h' ],
+							name: "1 Hour",
+							value: result.change[ '1h' ] + '%',
 							inline: true
 						},
 						{
-							name: "12 Hours %",
-							value: result.change[ '24h' ],
+							name: "12 Hours",
+							value: result.change[ '24h' ] + '%',
 							inline: true
 						},
 						{
-							name: "7 Days %",
-							value: result.change[ '7d' ],
+							name: "7 Days",
+							value: result.change[ '7d' ] + '%',
 							inline: true
 						}
 					],
