@@ -28,9 +28,9 @@ exports.poloniex = {
 		var xCoin = [baseCoin, coin].join('_');
 		
 		if (baseCoin === coin) {
-			return response.edit('Cannot compare ' + baseCoin + ' to itself');
+			return msg.channel.send('Cannot compare ' + baseCoin + ' to itself');
 		} else if (typeof coin === 'undefined') {
-			return response.edit('Please define a coin');
+			return msg.channel.send('Please define a coin');
 		}
 
 		msg.channel.send('Loading...').then(response => {
