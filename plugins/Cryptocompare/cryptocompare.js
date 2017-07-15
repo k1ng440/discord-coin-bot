@@ -64,7 +64,7 @@ exports.cryptocompare = {
                     response.edit({
                         embed: {
                             color: '3447003',
-                            title: "CryptoCompare (" + rawResult.FROMSYMBOL + " => " + rawResult.TOSYMBOL + ") :chart_with_upwards_trend:",
+                            title: "CryptoCompare (" + rawResult.FROMSYMBOL + " => " + rawResult.TOSYMBOL + ")",
                             fields: [
                                 {
                                     name: 'Price',
@@ -113,6 +113,5 @@ exports.cryptocompare = {
                 return response.edit('Invalid coin / currency.');
             }
         });
-
     }
 };

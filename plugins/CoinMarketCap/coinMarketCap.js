@@ -19,7 +19,6 @@ const CMC = require('./coinMarketCapApi');
 
 const currencies = [ "USD", "BTC", "AUD", "BRL", "CAD", "CHF", "CNY", "EUR", "GBP", "HKD", "IDR", "INR", "JPY", "KRW", "MXN", "RUB" ]
 
-
 const cmc = new CMC(10);
 
 exports.coinmarketcap = {
@@ -44,7 +43,7 @@ exports.coinmarketcap = {
 				embed: {
 					color: '3447003',
 					url: result.url,
-					title: "Coin Market Cap (" + result.name + ") :chart_with_upwards_trend:",
+					title: "Coin Market Cap (" + result.name + ")",
 					fields: [
 						{
 							name: 'Price',

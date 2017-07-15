@@ -26,7 +26,7 @@ try {
 }
 
 // Load custom permissions
-var dangerousCommands = [ "eval", "pullanddeploy", "setUsername" ];
+var dangerousCommands = [ "eval", "update", "setUsername" ];
 var Permissions = {};
 try {
 	Permissions = require(__dirname + "/permissions.json");
