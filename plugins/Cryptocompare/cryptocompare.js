@@ -77,7 +77,7 @@ exports.cryptocompare = {
                                     inline: true
                                 },
                                 {
-                                    name: "Total Supply",
+                                    name: "Supply",
                                     value: displayResult.SUPPLY,
                                     inline: true
                                 },

@@ -71,7 +71,7 @@ exports.coinmarketcap = {
 							inline: true
 						},
 						{
-							name: "Total Supply",
+							name: "Supply",
 							value: result.supply,
 							inline: true
 						},
