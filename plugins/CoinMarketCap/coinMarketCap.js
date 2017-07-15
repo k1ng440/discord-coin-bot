@@ -1,6 +1,6 @@
 exports.commands = [
 	"coinmarketcap",
-	"coinmarketcap_notify"
+	// "coinmarketcap_notify"
 ]
 
 const NodeCache = require("node-cache");

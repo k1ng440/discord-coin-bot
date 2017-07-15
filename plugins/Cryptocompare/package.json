@@ -1,0 +1,11 @@
+{
+  "main": "cryptocompare.js",
+  "dependencies": {
+    "request": "2.81.0",
+    "request-promise-native": "^1.0.4",
+    "node-cache": "4.1.1",
+    "nedb": "^1.8.0",
+    "moment": "2.18.1",
+    "underscore": "1.8.3"
+  }
+}

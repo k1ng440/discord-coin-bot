@@ -17,8 +17,6 @@ try { //try loading plugins from a non standalone install first
     plugin_folders = getDirectories(plugin_directory);
 }
 
-console.log(__dirname, process.execPath);
-
 exports.init = function(){
     preload_plugins();
 };
