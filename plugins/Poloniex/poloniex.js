@@ -13,6 +13,7 @@ const Poloniex = require('poloniex-api-node');
 const poloniex = new Poloniex(Auth.poloniex_api, Auth.poloniex_secret, { socketTimeout: 130000 });
 const NodeCache = require("node-cache");
 const poloniexCache = new NodeCache({ stdTTL: 60, checkperiod: 60 });
+const _ = require('underscore');
 
 exports.poloniex = {
 	usage: "<Coin> <Coin>",
