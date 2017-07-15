@@ -45,7 +45,7 @@ exports.poloniex = {
 					response.edit({
 						embed: {
 							color: 3447003,
-							title: "Poloniex ("+ baseCoin + ":" + coin + ")",
+							title: "Poloniex ("+ baseCoin + ":" + coin + ") :bar_chart:",
 							fields: [
 								{
 									name: "Last",

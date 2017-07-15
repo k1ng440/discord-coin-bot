@@ -64,7 +64,7 @@ exports.cryptocompare = {
                     response.edit({
                         embed: {
                             color: '3447003',
-                            title: "CryptoCompare (" + rawResult.FROMSYMBOL + " => " + rawResult.TOSYMBOL + ")",
+                            title: "CryptoCompare (" + rawResult.FROMSYMBOL + " => " + rawResult.TOSYMBOL + ") :bar_chart:",
                             fields: [
                                 {
                                     name: 'Price',

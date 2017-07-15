@@ -43,7 +43,7 @@ exports.coinmarketcap = {
 				embed: {
 					color: '3447003',
 					url: result.url,
-					title: "Coin Market Cap (" + result.name + ")",
+					title: "Coin Market Cap (" + result.name + ") :bar_chart:",
 					fields: [
 						{
 							name: 'Price',
@@ -77,17 +77,17 @@ exports.coinmarketcap = {
 						},
 						{
 							name: "1 Hour %",
-							value: getThumb(result.change[ '1h' ]),
+							value: result.change[ '1h' ],
 							inline: true
 						},
 						{
 							name: "12 Hours %",
-							value: getThumb(result.change[ '24h' ]),
+							value: result.change[ '24h' ],
 							inline: true
 						},
 						{
 							name: "7 Days %",
-							value: getThumb(result.change[ '7d' ]),
+							value: result.change[ '7d' ],
 							inline: true
 						}
 					],
@@ -105,12 +105,4 @@ exports.coinmarketcap = {
 
 exports.coinmarketcap_notify = {
 
-}
-
-function getThumb(value) {
-	if (value.charAt(0) === '-') {
-		return value.substring(1) + ':chart_with_downwards_trend:'
-	} else {
-		return value + ':chart_with_upwards_trend:'
-	}
 }

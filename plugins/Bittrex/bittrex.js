@@ -45,7 +45,7 @@ exports.bittrex = {
 				response.edit({
 					embed: {
 						color: 3447003,
-						title: "Bittrex ("+ baseCoin + ":" + coin + ")",
+						title: "Bittrex ("+ baseCoin + ":" + coin + ") :bar_chart:",
 						fields: [
 							{
 								name: "Bid",
@@ -71,8 +71,6 @@ exports.bittrex = {
 		});
 	}
 }
-
-
 
 function getTicker(marketName) {
 	return new Promise((resolve, reject) => {
