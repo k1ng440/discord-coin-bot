@@ -83,17 +83,17 @@ exports.cryptocompare = {
                                 },
                                 {
                                     name: "Open 24 hours",
-                                    value: displayResult.OPEN24HOUR + " " + getThumb(displayResult.OPEN24HOUR),
+                                    value: displayResult.OPEN24HOUR,
                                     inline: true
                                 },
                                 {
                                     name: "High 24 hours",
-                                    value: displayResult.HIGH24HOUR + " " + getThumb(displayResult.HIGH24HOUR),
+                                    value: displayResult.HIGH24HOUR,
                                     inline: true
                                 },
                                 {
                                     name: "Low 24 hours",
-                                    value: displayResult.LOW24HOUR + " " + getThumb(displayResult.LOW24HOUR),
+                                    value: displayResult.LOW24HOUR,
                                     inline: true
                                 },
                             ],
@@ -116,11 +116,3 @@ exports.cryptocompare = {
 
     }
 };
-
-function getThumb(value) {
-    if (value.indexOf('-') !== -1) {
-        return ':small_red_triangle_down:'
-    } else {
-        return ':small_red_triangle:'
-    }
-}

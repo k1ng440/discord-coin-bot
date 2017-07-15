@@ -110,8 +110,8 @@ exports.coinmarketcap_notify = {
 
 function getThumb(value) {
 	if (value.charAt(0) === '-') {
-		return value.substring(1) + ':small_red_triangle_down:'
+		return value.substring(1) + ':chart_with_downwards_trend::'
 	} else {
-		return value + ':small_red_triangle:'
+		return value + ':chart_with_upwards_trend:'
 	}
 }
